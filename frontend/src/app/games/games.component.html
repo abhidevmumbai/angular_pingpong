@@ -1,0 +1,16 @@
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action" *ngFor="let game of games" id="{{game.id}}">
+        <div>{{ game.date | date }}</div>
+        <div>
+            <div>Scores: </div>
+            <ul class="list-inline float-left mr-2">
+                <li>Player 1</li>
+                <li class="pull-right">{{ game.player1Score }}</li>
+            </ul>
+            <ul class="list-inline">
+                <li>Player 2</li>
+                <li class="pull-right">{{ game.player2Score }}</li>
+            </ul>
+        </div>
+    </a>
+</div>
