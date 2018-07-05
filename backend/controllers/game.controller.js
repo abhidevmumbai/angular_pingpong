@@ -6,4 +6,21 @@ controller.test = function(req, res) {
 	res.send('Greetings from test controller');
 };
 
+controller.game_create = function(req, res, next) {
+	let game = new Game({
+		date: req.body.date,
+		player1: req.body.player1,
+		player2: req.body.player2,
+		player1Score: req.body.player1Score,
+		player2Score: req.body.player2Score
+	});
+
+	game.save(function(err) {
+		if(err) {
+			return next(err);
+		}
+		res.send('Game created successfully');
+	})
+};
+
 module.exports = controller;
