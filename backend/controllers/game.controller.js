@@ -6,6 +6,15 @@ controller.test = function(req, res) {
 	res.send('Greetings from test controller');
 };
 
+controller.game_all = function(req, res, next) {
+	Game.find(function(err, game) {
+		if(err) {
+			return next(err);
+		}
+		res.send(game);
+	})
+};
+
 controller.game_details = function(req, res, next) {
 	Game.findById(req.params.id, function(err, game) {
 		if(err) {
