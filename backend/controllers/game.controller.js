@@ -41,4 +41,13 @@ controller.game_update = function(req, res, next) {
 	})
 };
 
+controller.game_delete = function(req, res, next) {
+	Game.findByIdAndRemove(req.params.id, function(err) {
+		if(err) {
+			return next(err);
+		}
+		res.send('Game deleted');
+	})
+};
+
 module.exports = controller;

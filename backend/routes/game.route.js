@@ -11,6 +11,8 @@ router.post('/create', game_controller.game_create);
 
 router.put('/:id', game_controller.game_update);
 
+router.delete('/:id', game_controller.game_delete);
+
 
 
 
