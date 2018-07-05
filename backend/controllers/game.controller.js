@@ -13,7 +13,7 @@ controller.game_details = function(req, res, next) {
 		}
 		res.send(game);
 	})
-}
+};
 
 controller.game_create = function(req, res, next) {
 	let game = new Game({
@@ -29,6 +29,15 @@ controller.game_create = function(req, res, next) {
 			return next(err);
 		}
 		res.send('Game created successfully');
+	})
+};
+
+controller.game_update = function(req, res, next) {
+	Game.findByIdAndUpdate(req.params.id, { $set: req.body }, function(err) {
+		if(err) {
+			return next(err);
+		}
+		res.send('Game updated');
 	})
 };
 
