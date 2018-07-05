@@ -5,6 +5,8 @@ const game_controller = require('../controllers/game.controller');
 
 router.get('/test', game_controller.test);
 
+router.get('/:id', game_controller.game_details);
+
 router.post('/create', game_controller.game_create);
 
 
