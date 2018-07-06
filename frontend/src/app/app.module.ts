@@ -4,21 +4,30 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+
 import { AppComponent } from './app.component';
 import { GamesComponent } from './games/games.component';
+import { GameDetailsComponent } from './game-details/game-details.component';
 
 
 
 let routes = [{
-  path: 'games',
-  component: GamesComponent
-}];
+    path: 'games',
+    component: GamesComponent
+  },
+  {
+    path: 'games/:id',
+    component: GameDetailsComponent,
+    pathMatch: 'full'
+  }
+];
 const rootRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: false });
 
 @NgModule({
   declarations: [
     AppComponent,
-    GamesComponent
+    GamesComponent,
+    GameDetailsComponent
   ],
   imports: [
     BrowserModule,

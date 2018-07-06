@@ -1,5 +1,5 @@
 <div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action" *ngFor="let game of games" id="{{game.id}}">
+    <a href="#" [routerLink]="['/games', game._id]" class="list-group-item list-group-item-action" *ngFor="let game of games" id="{{game._id}}">
         <div>{{ game.date | date }}</div>
         <div>
             <div>Scores: </div>
