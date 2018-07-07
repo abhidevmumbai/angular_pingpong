@@ -31,6 +31,14 @@ export class GamesComponent implements OnInit, OnDestroy {
   		);
   }
 
+  deleteGame(idx, id) {
+    console.log(idx);
+     this.gameService.deleteGame(id).subscribe(res => {
+       console.log(res);
+       this.games.splice(idx, 1);
+     })
+  }
+
   ngOnDestroy() {
   	this.gameSub.unsubscribe();
   }

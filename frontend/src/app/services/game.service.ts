@@ -49,7 +49,7 @@ export class GameService {
 		return this.http.put<Game[]>(`${environment.apiURL}/games/${id}`, params);
 	}
 
-	// deleteGame(id) {
-	// 	return this.http.delete(`${environment.apiURL}/games/${id}`).map((res:Response) => res.json());	
-	// }	
+	deleteGame(id) {
+		return this.http.delete(`${environment.apiURL}/games/${id}`);	
+	}
 }
