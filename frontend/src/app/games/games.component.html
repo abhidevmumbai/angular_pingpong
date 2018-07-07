@@ -11,7 +11,7 @@
         <tr *ngFor="let game of games" id="{{game._id}}">
             <td>{{ game.date | date }}</td>
             <td>{{ game.player1Score }} - {{ game.player2Score }}</td>
-            <td><a [routerLink]="['/edit', game._id]" class="btn btn-primary">Edit</a></td>
+            <td><a [routerLink]="['edit', game._id]" class="btn btn-primary">Edit</a></td>
             <td><a [routerLink]="" class="btn btn-danger">Delete</a></td>
         </tr>
     </tbody>
