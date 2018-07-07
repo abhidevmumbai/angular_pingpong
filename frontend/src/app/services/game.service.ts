@@ -29,7 +29,7 @@ export class GameService {
 			player1Score: player1Score,
 			player2Score: player2Score
 		};
-		return this.http.post<Game[]>(`${environment.apiURL}/games/create`, JSON.stringify(params), httpOptions);	
+		return this.http.post<Game[]>(`${environment.apiURL}/games/create`, params);
 	}
 
 	// editGame(id, params) {
