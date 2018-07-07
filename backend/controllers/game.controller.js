@@ -32,6 +32,7 @@ controller.game_create = function(req, res, next) {
 		player1Score: req.body.player1Score,
 		player2Score: req.body.player2Score
 	});
+	console.log(game);
 
 	game.save(function(err) {
 		if(err) {
