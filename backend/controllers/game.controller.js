@@ -38,7 +38,7 @@ controller.game_create = function(req, res, next) {
 		if(err) {
 			return next(err);
 		}
-		res.send('Game created successfully');
+		res.send({msg:'Game created successfully'});
 	})
 };
 
@@ -47,7 +47,7 @@ controller.game_update = function(req, res, next) {
 		if(err) {
 			return next(err);
 		}
-		res.send('Game updated');
+		res.send({msg:'Game updated'});
 	})
 };
 
@@ -56,7 +56,7 @@ controller.game_delete = function(req, res, next) {
 		if(err) {
 			return next(err);
 		}
-		res.send('Game deleted');
+		res.send({msg:'Game deleted'});
 	})
 };
 
