@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Game } from '../games/game';
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class GameService {
 	constructor(private http: HttpClient) { }
 
 	getGames() {
-		return this.http.get(`${environment.apiURL}/games`);	
+		return this.http.get<Game[]>(`${environment.apiURL}/games`);
 	}
 
 	// getGame(id) {

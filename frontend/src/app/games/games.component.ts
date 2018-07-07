@@ -14,7 +14,7 @@ import { GameService } from '../services/game.service';
 })
 export class GamesComponent implements OnInit, OnDestroy {
 	gameSub: Subscription;
-	games: any;
+	games: Game[];
 	error: any
 
   constructor(
