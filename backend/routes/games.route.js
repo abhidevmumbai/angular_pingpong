@@ -13,9 +13,11 @@ const game_controller = require('../controllers/game.controller');
 
 router.get('/test', game_controller.test);
 
-router.get('/profile', profile_controller.profileRead);
+router.get('/profile', auth, profile_controller.profileRead);
 router.post('/register', auth_controller.register);
 router.post('/login', auth_controller.login);
+
+router.get('/users', profile_controller.users_all);
 
 router.get('/', game_controller.game_all);
 

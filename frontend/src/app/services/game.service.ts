@@ -15,6 +15,10 @@ export class GameService {
 		return this.http.get(`${environment.apiURL}/games/${id}`);	
 	}
 
+	getUsers() {
+		return this.http.get(`${environment.apiURL}/games/users`);	
+	}
+
 	createGame(date, player1, player2, player1Score, player2Score) {
 		const httpOptions = {
 			headers: new HttpHeaders({

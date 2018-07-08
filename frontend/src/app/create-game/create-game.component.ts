@@ -10,12 +10,14 @@ import { GameService } from '../services/game.service';
 })
 export class CreateGameComponent implements OnInit {
 	createGameForm: FormGroup;
+	opponents: any;
 
 	constructor(private gameService: GameService, private fb: FormBuilder) { 
 		this.createForm();
 	}
 
 	ngOnInit() {
+		this.getOpponents();
 	}
 
 	createForm() {
@@ -31,6 +33,12 @@ export class CreateGameComponent implements OnInit {
 
 	createGame(date, player1, player2, player1Score, player2Score) {
 		this.gameService.createGame(new Date(date), player1, player2, player1Score, player2Score).subscribe(res => console.log(res));
+	}
+
+	getOpponents() {
+		this.gameService.getUsers().subscribe(users => {
+			this.opponents = users;
+		});
 	}
 
 }

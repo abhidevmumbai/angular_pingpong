@@ -6,6 +6,7 @@ let controller = {};
 controller.profileRead = function(req, res) {
 
     // If no user ID exists in the JWT return a 401
+    console.log(req.payload);
     if (!req.payload._id) {
         res.status(401).json({
             "message": "UnauthorizedError: private profile"
@@ -19,6 +20,15 @@ controller.profileRead = function(req, res) {
             });
     }
 
+};
+
+controller.users_all = function(req, res, next) {
+    User.find(function(err, users) {
+        if(err) {
+            return next(err);
+        }
+        res.send(users);
+    })
 };
 
 module.exports = controller;
