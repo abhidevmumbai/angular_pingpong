@@ -14,7 +14,7 @@
                 <label class="col-md-4">Opponent</label>
                 <!-- <input type="text" class="form-control" name="player2" formControlName="player2" #player2 /> -->
                 <select class="form-control" name="player2" formControlName="player2" #player2>
-                    <option value="{{user._id}}" *ngFor="let user of opponents">{{user.name}}</option>
+                    <option value="{{user | json}}" *ngFor="let user of opponents">{{user.name}}</option>
                 </select>
 
                 <div *ngIf="createGameForm.controls['player2'].invalid && (createGameForm.controls['player2'].dirty || createGameForm.controls['player2'].touched)" class="alert alert-danger">

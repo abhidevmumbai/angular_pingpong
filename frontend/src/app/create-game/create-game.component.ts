@@ -32,8 +32,9 @@ export class CreateGameComponent implements OnInit {
 	}
 
 	createGame(date, player2, player1Score, player2Score) {
-		let player1 = this.auth.getUserDetails()._id;
-		this.gameService.createGame(new Date(date), player1, player2, player1Score, player2Score).subscribe(res => console.log(res));
+		let player1 = this.auth.getUserDetails();
+		player2 = JSON.parse(player2);			
+		this.gameService.createGame(new Date(date), player1._id, player1.name, player2._id, player2.name, player1Score, player2Score).subscribe(res => console.log(res));
 	}
 
 	getOpponents() {

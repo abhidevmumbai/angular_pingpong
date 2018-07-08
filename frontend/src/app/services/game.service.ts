@@ -23,17 +23,19 @@ export class GameService {
 		return this.http.get(`${environment.apiURL}/games/users`);	
 	}
 
-	createGame(date, player1, player2, player1Score, player2Score) {
+	createGame(date, player1, player1Name, player2, player2Name, player1Score, player2Score) {
 		const httpOptions = {
 			headers: new HttpHeaders({
 				'Content-Type':  'application/x-www-form-urlencoded'
 				// 'Authorization': 'my-auth-token'
-			})
+			});
 		};
 		const params = {
 			date: date,
 			player1: player1,
+			player1Name: player1Name,
 			player2: player2,
+			player2Name: player2Name,
 			player1Score: player1Score,
 			player2Score: player2Score
 		};

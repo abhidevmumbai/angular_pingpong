@@ -18,7 +18,7 @@ controller.game_all = function(req, res, next) {
 controller.game_by_user = function(req, res, next) {
 	let userId = req.params.userId;
 	console.log('user id', userId);
-	Game.find({player1: userId}, function(err, game) {
+	Game.find({$or: [{player1: userId}, {player2: userId}]}, function(err, game) {
 		if(err) {
 			return next(err);
 		}
@@ -40,7 +40,9 @@ controller.game_create = function(req, res, next) {
 	let game = new Game({
 		date: req.body.date,
 		player1: req.body.player1,
+		player1Name: req.body.player1Name,
 		player2: req.body.player2,
+		player2Name: req.body.player2Name,
 		player1Score: req.body.player1Score,
 		player2Score: req.body.player2Score
 	});
