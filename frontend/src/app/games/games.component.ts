@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { Game } from './game';
-// import { AuthService } from '../services/auth.service';
+
 import { GameService } from '../services/game.service';
 
 
