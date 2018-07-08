@@ -11,17 +11,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4">Your name</label>
-                <input type="text" class="form-control" name="player2" formControlName="player1" #player1 [(ngModel)]="game.player1" />
-                <div *ngIf="editGameForm.controls['player1'].invalid && (editGameForm.controls['player1'].dirty || editGameForm.controls['player1'].touched)" class="alert alert-danger">
-                    <div *ngIf="editGameForm.controls['player1'].errors.required">
-                        Opponent is required.
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
                 <label class="col-md-4">Opponent</label>
-                <input type="text" class="form-control" name="player2" formControlName="player2" #player2 [(ngModel)]="game.player2" />
+                <input type="text" class="form-control" name="player2" formControlName="player2" #player2 [(ngModel)]="game.player2Name" />
+                <!-- <select class="form-control" name="player2" formControlName="player2" #player2 [(ngModel)]="game.player2">
+                    <option value="{{user | json}}" *ngFor="let user of opponents">{{user.name}}</option>
+                </select> -->
                 <div *ngIf="editGameForm.controls['player2'].invalid && (editGameForm.controls['player2'].dirty || editGameForm.controls['player2'].touched)" class="alert alert-danger">
                     <div *ngIf="editGameForm.controls['player2'].errors.required">
                         Opponent is required.

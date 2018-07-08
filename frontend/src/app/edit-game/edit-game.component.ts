@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { AuthenticationService } from '../services/authentication.service';
 import { GameService } from '../services/game.service';
 
 @Component({
@@ -16,12 +17,14 @@ export class EditGameComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
     	private router: Router,
+    	private auth: AuthenticationService,
     	private gameService: GameService,
     	private fb: FormBuilder) { 
 		this.createForm();
 	}
 
 	ngOnInit() {
+		this.getOpponents();
 		this.route.params.subscribe(params => {
 	        this.gameService.getGame(params['id']).subscribe(res => {
 	        	console.log(res)
@@ -44,10 +47,18 @@ export class EditGameComponent implements OnInit {
 
 	updateGame(date, player1, player2, player1Score, player2Score) {
 		this.route.params.subscribe(params => {
-			this.gameService.updateGame(params['id'], new Date(date), player1, player2, player1Score, player2Score).subscribe(res => console.log(res));
+			let player1 = this.auth.getUserDetails();
+			player2 = JSON.parse(player2);			
+			this.gameService.updateGame(params['id'], new Date(date), player1._id, player1.name, player2._id, player2.name, player1Score, player2Score).subscribe(res => console.log(res));
 			// this.router.navigate(['games']);
 		});
 		
+	}
+
+	getOpponents() {
+		this.gameService.getUsers().subscribe(users => {
+			this.opponents = users;
+		});
 	}
 
 	formatDate(date) {
