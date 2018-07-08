@@ -20,6 +20,7 @@ router.post('/login', auth_controller.login);
 router.get('/users', profile_controller.users_all);
 
 router.get('/', game_controller.game_all);
+router.get('/user/:userId', game_controller.game_by_user);
 
 router.get('/:id', game_controller.game_details);
 

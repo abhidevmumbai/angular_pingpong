@@ -15,6 +15,18 @@ controller.game_all = function(req, res, next) {
 	})
 };
 
+controller.game_by_user = function(req, res, next) {
+	let userId = req.params.userId;
+	console.log('user id', userId);
+	Game.find({player1: userId}, function(err, game) {
+		if(err) {
+			return next(err);
+		}
+		res.send(game);
+	})
+};
+
+
 controller.game_details = function(req, res, next) {
 	Game.findById(req.params.id, function(err, game) {
 		if(err) {

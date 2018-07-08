@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Game } from './game';
 
+import { AuthenticationService } from '../services/authentication.service';
 import { GameService } from '../services/game.service';
 
 
@@ -18,13 +19,14 @@ export class GamesComponent implements OnInit, OnDestroy {
 	error: any
 
   constructor(
-  	public gameService: GameService
-  	// public authService: AuthService
+  	public gameService: GameService,
+  	private auth: AuthenticationService
   	) {}
 
   ngOnInit() {
+    let userId = this.auth.getUserDetails()._id;
   	this.gameSub = this.gameService
-  		.getGames()
+  		.getGamesByUser(userId)
   		.subscribe(
   			games => this.games = games,
   			err => this.error = err

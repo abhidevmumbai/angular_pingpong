@@ -11,6 +11,10 @@ export class GameService {
 		return this.http.get<Game[]>(`${environment.apiURL}/games`);
 	}
 
+	getGamesByUser(userId) {
+		return this.http.get<Game[]>(`${environment.apiURL}/games/user/${userId}`);
+	}
+
 	getGame(id) {
 		return this.http.get(`${environment.apiURL}/games/${id}`);	
 	}
