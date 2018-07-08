@@ -5,10 +5,11 @@ const User = require('../models/user.model');
 let controller = {};
 
 controller.register = function(req, res) {
-    console.log("Registering user: " + req.body.username);
+    console.log("Registering user: " + req.body.email);
     let user = new User();
 
-    user.username = req.body.username;
+    user.email = req.body.email;
+    user.name = req.body.name;
 
     user.setPassword(req.body.password);
 

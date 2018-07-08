@@ -5,7 +5,8 @@ let jwt = require('jsonwebtoken');
 const Schema = mongoose.Schema;
 
 let UserSchema = new Schema({
-	username: {type: String, unique: true, required: true},
+	email: {type: String, unique: true, required: true},
+	name: {type: String, unique: true, required: true},
 	hash: String,
   	salt: String
 });
