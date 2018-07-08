@@ -11,8 +11,24 @@ import { GamesComponent } from './games/games.component';
 import { GameDetailsComponent } from './game-details/game-details.component';
 import { CreateGameComponent } from './create-game/create-game.component';
 import { EditGameComponent } from './edit-game/edit-game.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
-let routes = [{
+let routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
     path: 'games',
     component: GamesComponent
   },
@@ -33,7 +49,10 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash:
     GamesComponent,
     GameDetailsComponent,
     CreateGameComponent,
-    EditGameComponent
+    EditGameComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
