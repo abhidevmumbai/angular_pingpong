@@ -13,6 +13,7 @@ import { GameService } from '../services/game.service';
 export class EditGameComponent implements OnInit {
 	game: any = {};
 	editGameForm: FormGroup;
+	opponents: any;
 
 	constructor(
 		private route: ActivatedRoute,

@@ -28,7 +28,7 @@ export class GameService {
 			headers: new HttpHeaders({
 				'Content-Type':  'application/x-www-form-urlencoded'
 				// 'Authorization': 'my-auth-token'
-			});
+			})
 		};
 		const params = {
 			date: date,
