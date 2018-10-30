@@ -28,8 +28,7 @@ Add all necessary migrations, models, controllers, and tests.
 7. Deploy the solution to Heroku to complete the task
 
 # Evaluation Scoring
-
-We are evaluating you as a backend java developer.  We will score your completion of the task as follows:
+We will score your completion of the task as follows:
 
 * 35 points for features completion
 * 35 points for code quality (RESTful, simple, readable)
